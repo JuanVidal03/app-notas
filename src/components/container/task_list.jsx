@@ -31,10 +31,37 @@ const TaskListComponent = () => {
 
     }, [tasks]);
     
+    //función para completar una tarea
+    const completedTask = ( task ) => {
+        console.log('complete this task', task);
+        const index = tasks.indexOf( task );
+        const tempTask = [...tasks];
 
-    const changeCompleted = (id) => {
-        console.log('TODO: Cambiar estado de una tarea');
+        tempTask[index].completed = !tempTask[index].completed;
+        //actualizamos el estaod del omponente y actualizamos la iteración de las tareas en el orden quese muestran las tareas
+        setTasks(tempTask);
     }
+
+    //función para eliminar una tarea
+    const deleteTask = (task) => {
+        console.log('eliminar this task', task);
+        const index = tasks.indexOf( task );
+        const tempTask = [...tasks];
+
+        tempTask.splice(index,1);
+        setTasks(tempTask);
+    }
+
+    //para añadir tareas
+    const addTask = (task) => {
+        console.log('eliminar this task', task);
+        const index = tasks.indexOf( task );
+        const tempTask = [...tasks];
+
+        tempTask.push(task);
+        setTasks(tempTask);
+    }
+
      
     return(
         <div>
@@ -66,20 +93,22 @@ const TaskListComponent = () => {
                                 {tasks.map((task, index) => {
 
                                     return (
-                                    <TaskComponent task={task} key={index}/>
+                                    <TaskComponent
+                                        task={task} 
+                                        key={index} 
+                                        completed={ completedTask }
+                                        remove={ deleteTask }/>
                                     );
-
+ 
                                 })}
 
                             </tbody>
                         </table>
                     </div>
-                    <TaskForm/>
                 </div>
             </div>
-
-            {/*llamo al componente TaskComponent que es la estructura de los datos, los datos que se van a ver van a ser del elemento constructor*/}
-            {/* <TaskComponent task={defaultTask}/> */}
+            <TaskForm
+                add={ addTask }/>
         </div>
     )
 }

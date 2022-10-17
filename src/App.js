@@ -1,5 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
+// import Father from './components/container/father';
 // import Greeting from './components/pure/Greeting';
 // import GreetingFunc from './components/GreetingFunc';
 // import Ejemplo1 from './hooks/Ejemplo1';
@@ -25,6 +25,7 @@ function App() {
         {/* <GreetingStyled name='juan'/> */}
         <TaskListComponent/>
       {/* </header> */}
+      {/* <Father/> */}
     </div>
   );
 }

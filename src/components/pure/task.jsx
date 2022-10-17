@@ -8,7 +8,7 @@ import '../../styles/task.scss'
 
 
 //componente de la tarea, recibe como parametros instancias de la clase Task ubicada en task.class.js
-const TaskComponent = ({ task }) => {
+const TaskComponent = ({ task, completed, remove }) => {
 
     //función que retorna un badge dependiendo el level de la tarea
     const taskLevelBadge = () => {
@@ -45,9 +45,9 @@ const TaskComponent = ({ task }) => {
     //funcion para cambiar el icono del estado del completed
     const taskCompletedIcon = () => {
         if (task.completed) {
-            return ( <i className='bi-toggle-on' style={ { color: 'green', fontWeight: 'bold', fontSize: '1.2rem' } }></i> )
+            return ( <i onClick={ () => completed(task) } className='bi-toggle-on task-action' style={ { color: 'green', fontWeight: 'bold', fontSize: '1.2rem' } }></i> )
         } else {
-            return ( <i className='bi-toggle-off' style={ { color: 'grey', fontWeight: 'bold', fontSize: '1.2rem' } }></i> )
+            return ( <i onClick={ () => completed(task) } className='bi-toggle-off task-action' style={ { color: 'grey', fontWeight: 'bold', fontSize: '1.2rem' } }></i> )
         }
     }
 
@@ -68,7 +68,7 @@ const TaskComponent = ({ task }) => {
             <td className='align-midle'>
                 {/* llamado a la funcon que retorna el icon dependiendo el estado de la clave */}
                 { taskCompletedIcon() }
-                <i className='bi-trash' style={ { color: 'tomato', fontSize: '1.2rem' } }></i>
+                <i onClick={ () => remove(task) } className='bi-trash task-action' style={ { color: 'tomato', fontSize: '1.2rem' } }></i>
             </td>
         </tr>
 
@@ -78,7 +78,9 @@ const TaskComponent = ({ task }) => {
 
 TaskComponent.propTypes = {
     //instanceof es una instancia de la clase Task que se encuenta en task.class.js
-    task: PropTypes.instanceOf(Task)
+    task: PropTypes.instanceOf(Task).isRequired,
+    completed: PropTypes.func.isRequired,
+    remove: PropTypes.func.isRequired
 }
 
 export default TaskComponent;
