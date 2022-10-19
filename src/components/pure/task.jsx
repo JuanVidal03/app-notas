@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
+
+//modelos
 import { Task } from '../../models/task.class';
-import { useEffect } from 'react';
 import { LEVELS } from '../../models/levels.enum';
 
 //importamos hoja de estilos
@@ -51,10 +52,20 @@ const TaskComponent = ({ task, completed, remove }) => {
         }
     }
 
+    //estilos para diferenciar tareas completadas y pendientes
+    const taskCompleted = {
+        color: 'gray',
+        textDecoration: 'line-through'
+    }
+    const taskPending = {
+        fontWeight: 'bold',
+        color: 'tomato'
+    }
+
 
     return(
 
-        <tr className='fw-normal'>
+        <tr className='fw-normal' style={task.completed ? taskCompleted: taskPending} >
             <th>
                 <span className='ms-2'>{ task.name }</span>
             </th>

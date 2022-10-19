@@ -19,32 +19,25 @@ const TaskListComponent = () => {
     const [tasks, setTasks] = useState([defaultTask1, defaultTask2, defaultTask3]);
     const [loading, setLoading] = useState(true);
 
-    //control ciclo de vida componente
     useEffect(() => {
 
-        console.log('modificación tareas');
-        setLoading(false);
-
-        return () => {
-            console.log('La tarea va a desaparecer.')
-        };
-
-    }, [tasks]);
+        setTimeout(() => {
+            setLoading(false)
+        }, 2000)
+    }, []);
     
     //función para completar una tarea
     const completedTask = ( task ) => {
-        console.log('complete this task', task);
         const index = tasks.indexOf( task );
         const tempTask = [...tasks];
 
         tempTask[index].completed = !tempTask[index].completed;
-        //actualizamos el estaod del omponente y actualizamos la iteración de las tareas en el orden quese muestran las tareas
+        //actualizamos el estado del componente y actualizamos la iteración de las tareas en el orden quese muestran las tareas
         setTasks(tempTask);
     }
 
     //función para eliminar una tarea
     const deleteTask = (task) => {
-        console.log('eliminar this task', task);
         const index = tasks.indexOf( task );
         const tempTask = [...tasks];
 
@@ -54,12 +47,62 @@ const TaskListComponent = () => {
 
     //para añadir tareas
     const addTask = (task) => {
-        console.log('eliminar this task', task);
         const index = tasks.indexOf( task );
         const tempTask = [...tasks];
 
         tempTask.push(task);
         setTasks(tempTask);
+    }
+
+    //contiene la información de las tareas
+    const Table = () => {
+        return(
+            <table>
+                <thead>
+                    <tr>
+                        <th scope='col'>Titulo</th>
+                        <th scope='col'>Descripción</th>
+                        <th scope='col'>Prioridad</th>
+                        <th scope='col'>Acciones</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {/* Iterar sobre la lista de tareas */}
+                    {tasks.map((task, index) => {
+
+                        return (
+                        <TaskComponent
+                            task={task} 
+                            key={index} 
+                            completed={ completedTask }
+                            remove={ deleteTask }/>
+                        );
+                    })}
+                </tbody>
+            </table>
+        )
+    }
+
+    //variable asignada para renderizar el contenido en caso tal si hay o no hay tareas. 
+    let taskTable;
+
+    //condicional por si no hay ninguna tarea
+    if ( tasks.length > 0 ) {
+        taskTable = <Table/>
+    } else {
+        taskTable = (
+            <div style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+                <h3>No hay ninguna tarea.</h3>
+                <h4>Crear una tarea.</h4>
+            </div>
+        )
+    }
+
+    const loadingStyle = {
+        color: 'gray',
+        fontSize: '2rem',
+        fontWeight: 'bold'
     }
 
      
@@ -77,42 +120,16 @@ const TaskListComponent = () => {
                     {/* Card body */}
                     <div className="card-body" data-mbd-perfectscroollbar='true' style={ { position: 'relative', height: '400px' } }>
                        {/* Inicio tabla de tareas */}
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th scope='col'>Titulo</th>
-                                    <th scope='col'>Descripción</th>
-                                    <th scope='col'>Prioridad</th>
-                                    <th scope='col'>Acciones</th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-
-                                {/* Iterar sobre la lista de tareas */}
-                                {tasks.map((task, index) => {
-
-                                    return (
-                                    <TaskComponent
-                                        task={task} 
-                                        key={index} 
-                                        completed={ completedTask }
-                                        remove={ deleteTask }/>
-                                    );
- 
-                                })}
-
-                            </tbody>
-                        </table>
+                       { loading ? (<p style={loadingStyle}>Cargando...</p>) : taskTable }
                     </div>
                 </div>
             </div>
             <TaskForm
-                add={ addTask }/>
+                add={ addTask }
+                length={tasks.length}
+            />
         </div>
     )
 }
-
-
 
 export default TaskListComponent;

@@ -1,4 +1,5 @@
 import './App.css';
+// import OptionalRender from './components/pure/forms/optionalRender';
 // import Father from './components/container/father';
 // import Greeting from './components/pure/Greeting';
 // import GreetingFunc from './components/GreetingFunc';
@@ -8,6 +9,7 @@ import './App.css';
 // import Ejemplo4 from './hooks/Ejemplo4';
 // import GreetingStyled from './components/pure/greetingStyled';
 import TaskListComponent from './components/container/task_list';
+
 
 function App() {
   return (
@@ -23,9 +25,13 @@ function App() {
           {/* <h3>Contenido del props.children</h3> */}
         {/* </Ejemplo4> */}
         {/* <GreetingStyled name='juan'/> */}
+        {/* </header> */}
+        {/* <Father/> */}
+        {/* Ejemplos renderizado condicional */}
+        {/* <OptionalRender/> */}
+        
+        {/* PROYECTO */}
         <TaskListComponent/>
-      {/* </header> */}
-      {/* <Father/> */}
     </div>
   );
 }
