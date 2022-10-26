@@ -1,8 +1,7 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import  { PropTypes } from 'prop-types';
 import { LEVELS } from '../../../models/levels.enum';
 import { Task } from '../../../models/task.class';
-import TaskListComponent from '../../container/task_list';
 //Para el formulario
 import * as Yup from 'yup';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
@@ -86,7 +85,7 @@ const TaskForm = ({ add }) => {
                     values.level
                 );
         
-                await new Promise((res) => setTimeout(res, 1000));
+                await new Promise((res) => setTimeout(res, 2000));
                 add(newTask);
             } }
             >
@@ -138,7 +137,7 @@ const TaskForm = ({ add }) => {
                             
         
                             <button type='submit'>Registrar</button>
-                            { isSubmitting ? (<p>Creando Usuario...</p>) : null }
+                            { isSubmitting ? (<p>Creando Tarea...</p>) : null }
                         </Form>
                     )
             }
