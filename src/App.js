@@ -1,5 +1,5 @@
 import './App.css';
-import RegisterFormik from './components/pure/forms/registerFormik';
+// import RegisterFormik from './components/pure/forms/registerFormik';
 // import OptionalRender from './components/pure/forms/optionalRender';
 // import Father from './components/container/father';
 // import Greeting from './components/pure/Greeting';
@@ -12,8 +12,8 @@ import RegisterFormik from './components/pure/forms/registerFormik';
 // import LoginFormik from './components/pure/forms/LoginFormik';
 
 
-
-// import TaskListComponent from './components/container/task_list';
+//PROPYECTO
+import TaskListComponent from './components/container/task_list';
 
 
 function App() {
@@ -35,10 +35,10 @@ function App() {
         {/* Ejemplos renderizado condicional */}
         {/* <OptionalRender/> */}
         {/* <LoginFormik/> */}
-        <RegisterFormik/>
+        {/* <RegisterFormik/> */}
 
         {/* PROYECTO */}
-        {/* <TaskListComponent/> */}
+        <TaskListComponent/>
     </div>
   );
 }

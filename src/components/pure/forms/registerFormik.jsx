@@ -133,7 +133,7 @@ const RegisterFormik = () => {
                             { isSubmitting ? (<p>Creando Usuario...</p>) : null }
                         </Form>
                     )
-    }
+            }
         
             </Formik>
         </div>
