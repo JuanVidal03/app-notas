@@ -1,4 +1,5 @@
 import './App.css';
+import RegisterFormik from './components/pure/forms/registerFormik';
 // import OptionalRender from './components/pure/forms/optionalRender';
 // import Father from './components/container/father';
 // import Greeting from './components/pure/Greeting';
@@ -8,7 +9,11 @@ import './App.css';
 // import MiComponenteConContexto from './hooks/Ejemplo3';
 // import Ejemplo4 from './hooks/Ejemplo4';
 // import GreetingStyled from './components/pure/greetingStyled';
-import TaskListComponent from './components/container/task_list';
+// import LoginFormik from './components/pure/forms/LoginFormik';
+
+
+
+// import TaskListComponent from './components/container/task_list';
 
 
 function App() {
@@ -29,9 +34,11 @@ function App() {
         {/* <Father/> */}
         {/* Ejemplos renderizado condicional */}
         {/* <OptionalRender/> */}
-        
+        {/* <LoginFormik/> */}
+        <RegisterFormik/>
+
         {/* PROYECTO */}
-        <TaskListComponent/>
+        {/* <TaskListComponent/> */}
     </div>
   );
 }

@@ -20,7 +20,6 @@ const TaskListComponent = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-
         setTimeout(() => {
             setLoading(false)
         }, 2000)
@@ -47,7 +46,6 @@ const TaskListComponent = () => {
 
     //para añadir tareas
     const addTask = (task) => {
-        const index = tasks.indexOf( task );
         const tempTask = [...tasks];
 
         tempTask.push(task);
@@ -94,7 +92,7 @@ const TaskListComponent = () => {
         taskTable = (
             <div style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
                 <h3>No hay ninguna tarea.</h3>
-                <h4>Crear una tarea.</h4>
+                <h4>Debes crear una.</h4>
             </div>
         )
     }
