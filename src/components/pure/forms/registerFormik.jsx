@@ -5,9 +5,16 @@ import * as Yup from 'yup';
 //model del usuario
 import { User } from '../../../models/user.class';
 import { ROLES } from '../../../models/roles.enum';
+//importación Button de @mui/material
+import Button from '@mui/material/Button';
+//react router dom
+import { useNavigate } from 'react-router-dom';
 
 const RegisterFormik = () => {
 
+
+    //navegar entre componentes o páginas
+    const navigate = useNavigate();
     //plantilla de usuario
     let user = new User();
 
@@ -136,6 +143,7 @@ const RegisterFormik = () => {
             }
         
             </Formik>
+            <Button variant='contained' onClick={ () => navigate('/login') }>Log in</Button>
         </div>
     )
 

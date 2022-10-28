@@ -2,6 +2,8 @@ import React from 'react';
 //importamos libreria formik y yup
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { useNavigate } from 'react-router-dom';
+import Button from '@mui/material/Button';
 
     //inicalizamos Yup para dar validación a los valores
     const loginSchema = Yup.object().shape(
@@ -25,6 +27,9 @@ const LoginFormik = () => {
         password: ''
     }
 
+    //para hacer un redireccionamiento despues de iniciar sesión
+    const navigate = useNavigate();
+
     return (
 
         //inicio del formulario
@@ -41,6 +46,8 @@ const LoginFormik = () => {
                     alert(JSON.stringify(values, null, 2));
                     //guardamos los datos en el localstorage    
                     localStorage.setItem('credentials', values);
+                    //usando este navigate se haría una redirección al INICIO
+                    navigate('/dashboard');
                 } }
             >
 
@@ -88,6 +95,8 @@ const LoginFormik = () => {
                 } }
                 
             </Formik>
+
+            <Button variant='contained' onClick={() => navigate('/register')}>Register</Button>
         </div>
     );
 }
