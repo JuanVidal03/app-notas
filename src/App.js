@@ -10,10 +10,14 @@ import './App.css';
 // import Ejemplo4 from './hooks/Ejemplo4';
 // import GreetingStyled from './components/pure/greetingStyled';
 // import LoginFormik from './components/pure/forms/LoginFormik';
+// import AsyncExample from './components/pure/AsyncExample';
+import ObservableExample from './components/pure/ObservableExample';
+
 
 
 //PROPYECTO
 import TaskListComponent from './components/container/task_list';
+import FetchExample from './components/pure/FetchExample';
 
 
 function App() {
@@ -37,8 +41,13 @@ function App() {
         {/* <LoginFormik/> */}
         {/* <RegisterFormik/> */}
 
+        {/* Ejemplos procesos asincronos */}
+        {/* <AsyncExample/> */}
+        {/* <ObservableExample/> */}
+        <FetchExample/>
+
         {/* PROYECTO */}
-        <TaskListComponent/>
+        {/* <TaskListComponent/> */}
     </div>
   );
 }

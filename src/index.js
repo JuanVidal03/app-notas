@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-icons/font/bootstrap-icons.css'
 //estilos propios debajo de bootstrap
 import './index.css';
-// import App from './App';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
 // import AppRoutingOne from './AppRoutingOne';
 import AppRoutingFinal from './AppRoutingFinal';
@@ -13,9 +13,9 @@ import AppRoutingFinal from './AppRoutingFinal';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {/* <App /> */}
+    <App />
     {/* <AppRoutingOne/> */}
-    <AppRoutingFinal/>
+    {/* <AppRoutingFinal/> */}
   </React.StrictMode>
 );
 
